@@ -10,10 +10,33 @@ public class Player : MonoBehaviour
     private float yMovement = 0;
     private Vector3 lastInteractDir;
     
+    private void Start(){
+        gameInput.OnInteractAction += GameInput_OnInteractAction;
+    }
+
+    private void GameInput_OnInteractAction(object sender, System.EventArgs e){
+         
+        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
+
+        Vector3 moveDir = new Vector3(inputVector.x, inputVector.y);
+
+        if(moveDir != Vector3.zero){
+            lastInteractDir = moveDir;
+        }
+
+        float interactionDistance = 2f;
+        RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, lastInteractDir, interactionDistance);
+        if(raycastHit.collider != null){
+            if(raycastHit.transform.TryGetComponent(out BoxSeed boxSeed)){
+                boxSeed.Interact();
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update(){
         HandleMovement();
-        //HandleInteractions();
+        HandleInteractions();
     }
 
     private void HandleInteractions(){
@@ -29,10 +52,6 @@ public class Player : MonoBehaviour
         RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, lastInteractDir, interactionDistance);
         if(raycastHit.collider != null){
             if(raycastHit.transform.TryGetComponent(out BoxSeed boxSeed)){
-                boxSeed.Interact();
-            }
-            else{
-                Debug.Log(raycastHit.collider);
             }
         }
     }
@@ -81,7 +100,6 @@ public class Player : MonoBehaviour
         if(raycastHit.collider == null){
             transform.position += moveDir * moveDistance;
         }
-        lastInteractDir = moveDir;
     }
 
     public float GetXMovement(){
