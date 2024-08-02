@@ -15343,13 +15343,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Overworld_726
+      name: BoxPotatoes
       rect:
         serializedVersion: 2
         x: 416
-        y: 240
+        y: 234
         width: 16
-        height: 16
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -22640,6 +22640,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      BoxPotatoes: 1372950214
       Overworld_0: -663830408
       Overworld_1: -294830498
       Overworld_10: 1698665525
@@ -23409,7 +23410,6 @@ TextureImporter:
       Overworld_723: -788745484
       Overworld_724: 984627303
       Overworld_725: 1857768767
-      Overworld_726: 1372950214
       Overworld_727: -1827339165
       Overworld_728: -747286
       Overworld_729: 1527667668
