@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private GameInput gameInput;
+    [SerializeField] private Tilemap tilemap;	
     private float xMovement = 0;
     private float yMovement = 0;
     private Vector3 lastInteractDir;
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour
         if(raycastHit.collider != null){
             if(raycastHit.transform.TryGetComponent(out BoxSeed boxSeed)){
                 boxSeed.Interact();
+                Debug.Log(new TilemapController(tilemap).GetTileBase(gameInput.GetMouseCoordinates()));
             }
         }
     }
@@ -90,8 +93,6 @@ public class Player : MonoBehaviour
                 }
             }
         }
-
-//public static RaycastHit2D BoxCast(Vector2 origin, Vector2 size, float angle, Vector2 direction, float distance = Mathf.Infinity, int layerMask = Physics2D.AllLayers, float minDepth = -Mathf.Infinity, float maxDepth = Mathf.Infinity);
         
         //Send info to animation
         xMovement = inputVector.x;

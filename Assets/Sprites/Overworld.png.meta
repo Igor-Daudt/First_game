@@ -8161,7 +8161,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Overworld_384
+      name: Grass
       rect:
         serializedVersion: 2
         x: 80
@@ -20467,7 +20467,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Overworld_970
+      name: Dirt
       rect:
         serializedVersion: 2
         x: 16
@@ -22641,6 +22641,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       BoxPotatoes: 1372950214
+      Dirt: 1650044631
+      Grass: -726508257
       Overworld_0: -663830408
       Overworld_1: -294830498
       Overworld_10: 1698665525
@@ -23031,7 +23033,6 @@ TextureImporter:
       Overworld_381: 418081714
       Overworld_382: 1997410346
       Overworld_383: 970481928
-      Overworld_384: -726508257
       Overworld_385: -1005905357
       Overworld_386: -1408796523
       Overworld_387: 1763519653
@@ -23680,7 +23681,6 @@ TextureImporter:
       Overworld_968: -424103908
       Overworld_969: 1729325675
       Overworld_97: 1511523164
-      Overworld_970: 1650044631
       Overworld_971: 1926275747
       Overworld_972: -963513772
       Overworld_973: -1814622012

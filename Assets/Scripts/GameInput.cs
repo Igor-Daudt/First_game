@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameInput : MonoBehaviour{
 
@@ -16,6 +17,10 @@ public class GameInput : MonoBehaviour{
 
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj){
         OnInteractAction?.Invoke(this, EventArgs.Empty);
+    }
+
+    public Vector2 GetMouseCoordinates(){
+        return Mouse.current.position.ReadValue();
     }
     
     public Vector2 GetMovementVectorNormalized(){
