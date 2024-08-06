@@ -2,25 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
 
 public class TilemapController : MonoBehaviour{
+    public const bool SCREEN_POSITION = true;
+    public const bool WORLD_POSITION = false;
+    [SerializeField] Tilemap tilemap;
+    [SerializeField] List<TileData> tileDataList;
+    Dictionary<TileBase, TileData> dataFromTiles;
 
-    Tilemap tilemap;
-    
-    public TilemapController(Tilemap tilemap)
-    {
-        this.tilemap = tilemap;
+    private void Start(){
+        dataFromTiles = new Dictionary<TileBase, TileData>();
+
+        foreach(TileData tileData in tileDataList)
+        {
+            foreach(TileBase tile in tileData.tiles)
+            {
+                dataFromTiles.Add(tile, tileData);
+            }
+        }
+
     }
 
-    public TileBase GetTileBase(Vector2 mousePosition){
+    public TileBase GetTileBase(Vector3Int gridPosition){
+        TileBase tile = tilemap.GetTile(gridPosition);
+        
+        return tile;
+    }
+    public Vector3Int GetGridPosition(Vector2 mousePosition, bool MousePositionScreen = SCREEN_POSITION){
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        if(MousePositionScreen == SCREEN_POSITION){
+            worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        }
+        else if(MousePositionScreen == WORLD_POSITION){
+            worldPosition = mousePosition;
+        }
 
         Vector3Int gridPosition = tilemap.WorldToCell(worldPosition);
 
-        TileBase tile = tilemap.GetTile(gridPosition);
+        return gridPosition;
+    }
 
-        Debug.Log("Tile in position =" + gridPosition + " is " + tile);
-
-        return null;
+    public TileData GetTileData(TileBase tile){
+        return dataFromTiles[tile];
     }
 }
