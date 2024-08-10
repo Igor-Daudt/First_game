@@ -9,15 +9,12 @@ public class Player : MonoBehaviour
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private GameInput gameInput;
     [SerializeField] private TilemapController tilemapController;
-    [SerializeField] private MarkerController marker;
-    private TilemapController tilemap;	
     private float xMovement = 0;
     private float yMovement = 0;
     private Vector3 lastInteractDir;
     
     private void Start(){
         gameInput.OnInteractAction += GameInput_OnInteractAction;
-        tilemap = FindObjectOfType<TilemapController>();
     }
 
     private void GameInput_OnInteractAction(object sender, System.EventArgs e){
@@ -34,7 +31,6 @@ public class Player : MonoBehaviour
         RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, lastInteractDir, interactionDistance);
         if(raycastHit.collider != null){
             if(raycastHit.transform.TryGetComponent(out BoxSeed boxSeed)){
-                marker.markedCellPosition = tilemap.GetGridPosition(gameInput.GetMouseCoordinates(), TilemapController.SCREEN_POSITION);
                 //Debug.Log(tilemap.GetTileBase(tilemap.GetGridPosition(gameInput.GetMouseCoordinates(), TilemapController.SCREEN_POSITION) ));
             }
         }
@@ -44,7 +40,6 @@ public class Player : MonoBehaviour
     void Update(){
         HandleMovement();
         HandleInteractions();
-        marker.markedCellPosition = tilemap.GetGridPosition(gameInput.GetMouseCoordinates(), TilemapController.SCREEN_POSITION);
     }
 
     private void HandleInteractions(){
@@ -108,11 +103,17 @@ public class Player : MonoBehaviour
         }
     }
 
+    // For PlayerAnimatorVisual
     public float GetXMovement(){
        return xMovement;
    }
 
    public float GetYMovement(){
        return yMovement;
+   }
+
+   // For MarkerController
+   public Vector3Int GetMouseGridPosition(){
+        return tilemapController.GetGridPosition(gameInput.GetMouseCoordinates(), TilemapController.SCREEN_POSITION);
    }
 }

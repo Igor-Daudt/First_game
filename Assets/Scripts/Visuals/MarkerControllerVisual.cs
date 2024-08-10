@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class MarkerController : MonoBehaviour{
+public class MarkerControllerVisual : MonoBehaviour{
     [SerializeField]Tilemap targetTilemap;
     [SerializeField]TileBase tile;
-    public Vector3Int markedCellPosition;
-    Vector3Int oldCellPosition;
+    [SerializeField] private Player player;
+    private Vector3Int markedCellPosition;
+    private Vector3Int oldCellPosition;
 
     private void Update()
     {
+        markedCellPosition = player.GetMouseGridPosition();
         targetTilemap.SetTile(oldCellPosition, null);
         targetTilemap.SetTile(markedCellPosition, tile);
         oldCellPosition = markedCellPosition;

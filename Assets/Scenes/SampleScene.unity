@@ -947,6 +947,7 @@ MonoBehaviour:
   moveSpeed: 4
   gameInput: {fileID: 257354147}
   tilemapController: {fileID: 381350607}
+  marker: {fileID: 1760022000}
 --- !u!1 &1487326911
 GameObject:
   m_ObjectHideFlags: 0
@@ -2510,6 +2511,7 @@ GameObject:
   - component: {fileID: 1760021997}
   - component: {fileID: 1760021999}
   - component: {fileID: 1760021998}
+  - component: {fileID: 1760022000}
   m_Layer: 0
   m_Name: MarkerTilemap
   m_TagString: Untagged
@@ -2572,7 +2574,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -2619,6 +2621,21 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1760022000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760021996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d4ecfc10c77ce468ce0114261f5f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTilemap: {fileID: 1760021999}
+  tile: {fileID: 11400000, guid: 887bbdc15e539c443870223db0e82481, type: 2}
+  markedCellPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1914699788
 GameObject:
   m_ObjectHideFlags: 0

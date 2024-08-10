@@ -12,6 +12,7 @@ public class TilemapController : MonoBehaviour{
     Dictionary<TileBase, TileData> dataFromTiles;
 
     private void Start(){
+        // Get the whole data from the map tiles
         dataFromTiles = new Dictionary<TileBase, TileData>();
 
         foreach(TileData tileData in tileDataList)
@@ -29,6 +30,7 @@ public class TilemapController : MonoBehaviour{
         
         return tile;
     }
+    
     public Vector3Int GetGridPosition(Vector2 mousePosition, bool MousePositionScreen = SCREEN_POSITION){
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
