@@ -6,9 +6,11 @@ using UnityEngine.Tilemaps;
 public class Player : MonoBehaviour
 {
     private const bool COLLIDER_FOUND = true;
+    private const bool USE_ITEM = true;
+    private const bool ACESS_ITEM = false;
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private GameInput gameInput;
-    [SerializeField] private TilemapController tilemapController;
+    [SerializeField] private ToolOnHand tool;
     private float xMovement = 0;
     private float yMovement = 0;
     private Vector3 lastInteractDir;
@@ -18,45 +20,14 @@ public class Player : MonoBehaviour
     }
 
     private void GameInput_OnInteractAction(object sender, System.EventArgs e){
-         
-        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
-
-        Vector3 moveDir = new Vector3(inputVector.x, inputVector.y);
-
-        if(moveDir != Vector3.zero){
-            lastInteractDir = moveDir;
-        }
-
-        float interactionDistance = 2f;
-        RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, lastInteractDir, interactionDistance);
-        if(raycastHit.collider != null){
-            if(raycastHit.transform.TryGetComponent(out BoxSeed boxSeed)){
-                //Debug.Log(tilemap.GetTileBase(tilemap.GetGridPosition(gameInput.GetMouseCoordinates(), TilemapController.SCREEN_POSITION) ));
-            }
-        }
+        tool.Use(InventoryController.instance.GetSelectedItem(ACESS_ITEM));
+        Debug.Log(TilemapController.instance.GetTileBase(TilemapController.instance.GetGridPosition(gameInput.GetMouseCoordinates(), TilemapController.SCREEN_POSITION) ));
+        //TilemapController.instance.ChangeSelectedTile(TilemapController.instance.GetGridPosition(gameInput.GetMouseCoordinates()));
     }
 
     // Update is called once per frame
     void Update(){
         HandleMovement();
-        HandleInteractions();
-    }
-
-    private void HandleInteractions(){
-        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
-
-        Vector3 moveDir = new Vector3(inputVector.x, inputVector.y);
-
-        if(moveDir != Vector3.zero){
-            lastInteractDir = moveDir;
-        }
-
-        float interactionDistance = 2f;
-        RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, lastInteractDir, interactionDistance);
-        if(raycastHit.collider != null){
-            if(raycastHit.transform.TryGetComponent(out BoxSeed boxSeed)){
-            }
-        }
     }
 
     private void HandleMovement(){
@@ -101,6 +72,10 @@ public class Player : MonoBehaviour
         if(raycastHit.collider != COLLIDER_FOUND){
             transform.position += moveDir * moveDistance;
         }
+
+        if(moveDir != Vector3.zero){
+            lastInteractDir = moveDir;
+        }
     }
 
     // For PlayerAnimatorVisual
@@ -114,6 +89,6 @@ public class Player : MonoBehaviour
 
    // For MarkerController
    public Vector3Int GetMouseGridPosition(){
-        return tilemapController.GetGridPosition(gameInput.GetMouseCoordinates(), TilemapController.SCREEN_POSITION);
+        return TilemapController.instance.GetGridPosition(gameInput.GetMouseCoordinates(), TilemapController.SCREEN_POSITION);
    }
 }

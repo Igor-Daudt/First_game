@@ -939,7 +939,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemap: {fileID: 1704380522}
-  tileDataList: []
+  tileDataList:
+  - {fileID: 11400000, guid: 1e25ec418025c494c9ba3d05c10eb0ef, type: 2}
+  - {fileID: 11400000, guid: f74d3b417d455d8418ea20200c79e40f, type: 2}
 --- !u!1 &402971337
 GameObject:
   m_ObjectHideFlags: 0
@@ -5491,10 +5493,10 @@ SceneRoots:
   - {fileID: 1487326913}
   - {fileID: 1452131745}
   - {fileID: 257354148}
+  - {fileID: 1064827131}
   - {fileID: 381350606}
   - {fileID: 1169161747}
   - {fileID: 1093244380680163390}
   - {fileID: 815990852}
   - {fileID: 402971341}
   - {fileID: 65779847}
-  - {fileID: 1064827131}
