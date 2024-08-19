@@ -90,3 +90,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5164c15c511c5cd4281928595f021a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seed: {fileID: 11400000, guid: 7ab817e872689724eb4acb931a913638, type: 2}
+  cursorNormal: {fileID: 2800000, guid: 151859f74d93921469f6abaf1a9dda54, type: 3}
+  cursorHovering: {fileID: 2800000, guid: d3245e666ffeac140ac22a0c702692ad, type: 3}
