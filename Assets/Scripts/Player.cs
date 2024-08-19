@@ -7,21 +7,17 @@ public class Player : MonoBehaviour
 {
     private const bool COLLIDER_FOUND = true;
     [SerializeField] private float moveSpeed = 1f;
-    [SerializeField] private GameInput gameInput;
     [SerializeField] private ToolOnHand tool;
     private float xMovement = 0;
     private float yMovement = 0;
     private Vector3 lastInteractDir;
     
     private void Start(){
-        gameInput.OnInteractAction += GameInput_OnInteractAction;
+        GameInput.instance.OnInteractAction += GameInput_OnInteractAction;
     }
 
     private void GameInput_OnInteractAction(object sender, System.EventArgs e){
-        //Debug.Log(TilemapController.instance.GetTileBase(TilemapController.instance.GetGridPosition(gameInput.GetMouseCoordinates(), TilemapController.SCREEN_POSITION)));
         tool.Use(InventoryController.instance.GetSelectedItem(InventoryController.ACESS_ITEM));
-        
-        //TilemapController.instance.ChangeSelectedTile(TilemapController.instance.GetGridPosition(gameInput.GetMouseCoordinates()));
     }
 
     // Update is called once per frame
@@ -30,18 +26,18 @@ public class Player : MonoBehaviour
     }
 
     private void HandleMovement(){
-        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
+        Vector2 inputVector = GameInput.instance.GetMovementVectorNormalized();
 
         Vector3 moveDir = new Vector3(inputVector.x, inputVector.y, 0f);
 
         float moveDistance = moveSpeed * Time.deltaTime;
         Vector3 currentDirection = (moveDir).normalized;
-        RaycastHit2D raycastHit =  Physics2D.BoxCast(transform.position, new Vector2(0.502807f, 0.9423415f), 0f, currentDirection, distance: moveDistance);
-        
+        RaycastHit2D raycastHit =  Physics2D.BoxCast(transform.position + new Vector3(0, -0.4f, 0), new Vector2(0.502807f, 0.6423415f), 0f, currentDirection, distance: moveDistance);
+
         if(raycastHit.collider == COLLIDER_FOUND){
             //Attemp only X movement
             Vector3 moveDirectionX = new Vector3(moveDir.x, 0, 0);
-            raycastHit =  Physics2D.BoxCast(transform.position, new Vector2(0.502807f, 0.9423415f), 0f, moveDirectionX, distance: moveDistance);
+            raycastHit =  Physics2D.BoxCast(transform.position + new Vector3(0, -0.4f, 0), new Vector2(0.502807f, 0.6423415f), 0f, moveDirectionX, distance: moveDistance);
             
             if(raycastHit.collider != COLLIDER_FOUND){
                 //Can only move on x axis
@@ -52,7 +48,7 @@ public class Player : MonoBehaviour
 
                 //Attempt only y movement
                 Vector3 moveDirectionY = new Vector3(0, moveDir.y, 0);
-                raycastHit =  Physics2D.BoxCast(transform.position, new Vector2(0.502807f, 0.9423415f), 0f, moveDirectionY, distance: moveDistance);
+                raycastHit =  Physics2D.BoxCast(transform.position + new Vector3(0, -0.4f, 0), new Vector2(0.502807f, 0.6423415f), 0f, moveDirectionY, distance: moveDistance);
 
                 if(raycastHit.collider != COLLIDER_FOUND){
                     //Can only move on y axis
@@ -77,17 +73,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    // For PlayerAnimatorVisual
     public float GetXMovement(){
        return xMovement;
    }
 
    public float GetYMovement(){
        return yMovement;
-   }
-
-   // For MarkerController
-   public Vector3Int GetMouseGridPosition(){
-        return TilemapController.instance.GetGridPosition(gameInput.GetMouseCoordinates(), TilemapController.SCREEN_POSITION);
    }
 }

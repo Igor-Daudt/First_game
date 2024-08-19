@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class GameInput : MonoBehaviour{
-
+    public static GameInput instance;
     public event EventHandler OnInteractAction;
     public event EventHandler OnToolSelectedAction;
     private PlayerInputActions playerInputActions;
@@ -15,6 +15,7 @@ public class GameInput : MonoBehaviour{
 
         playerInputActions.Player.Interact.performed += Interact_performed;
         playerInputActions.Player.SelectTool.performed += Tool_selected;
+        instance = this;
     }
 
     private void Interact_performed(InputAction.CallbackContext obj){

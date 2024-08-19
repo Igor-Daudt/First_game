@@ -14,7 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiles:
   - {fileID: 11400000, guid: 3397d652343d76f4fa7ffd90511525d7, type: 2}
-  - {fileID: 11400000, guid: 7135954c717b95447a01eb5f387cb157, type: 2}
-  - {fileID: 11400000, guid: cff9fb1d5403ff84da1d10d1cb76e315, type: 2}
   stage: 0
   plowable: 0

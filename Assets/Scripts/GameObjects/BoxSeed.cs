@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BoxSeed : MonoBehaviour
 {
+    [SerializeField] private Item seed;
+    
     public void Interact(){
-        Debug.Log("Interact");
+        InventoryController.instance.AddItem(seed);
     }
 }

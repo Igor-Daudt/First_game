@@ -80,7 +80,6 @@ public class InventoryController : MonoBehaviour{
     public Item GetSelectedItem(bool use){
         InventorySlot slot = inventorySlots[selectedSlot];
         InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-        Debug.Log(itemInSlot.item.Name);
         if(itemInSlot != null){
             if(use){
                 itemInSlot.count--;

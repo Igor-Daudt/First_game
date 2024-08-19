@@ -93,11 +93,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Overworld_0
+      name: Grass1
       rect:
         serializedVersion: 2
         x: 0
@@ -7510,7 +7523,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Overworld_353
+      name: Grass2
       rect:
         serializedVersion: 2
         x: 112
@@ -7531,7 +7544,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Overworld_354
+      name: Grass3
       rect:
         serializedVersion: 2
         x: 128
@@ -8161,7 +8174,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Grass
+      name: Grass0
       rect:
         serializedVersion: 2
         x: 80
@@ -8203,7 +8216,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Overworld_386
+      name: Grass4
       rect:
         serializedVersion: 2
         x: 112
@@ -8224,7 +8237,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Overworld_387
+      name: Grass5
       rect:
         serializedVersion: 2
         x: 128
@@ -11836,7 +11849,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Overworld_559
+      name: Rock0
       rect:
         serializedVersion: 2
         x: 208
@@ -11857,7 +11870,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Overworld_560
+      name: Rock1
       rect:
         serializedVersion: 2
         x: 224
@@ -12319,7 +12332,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Overworld_582
+      name: Rock2
       rect:
         serializedVersion: 2
         x: 208
@@ -12340,7 +12353,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Overworld_583
+      name: Rock3
       rect:
         serializedVersion: 2
         x: 224
@@ -22629,27 +22642,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Overworld_6
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 9
-        width: 3
-        height: 3
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf7efd781aa5fcb4fb1f4cdc5fb11ee3
-      internalID: 1321846544
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -22666,8 +22658,13 @@ TextureImporter:
       CropStage1: 1065054521
       CropStage2: -1359200935
       Dirt: 1650044631
-      Grass: -726508257
-      Overworld_0: -663830408
+      Grass0: -726508257
+      Grass1: -663830408
+      Grass2: 1417018068
+      Grass3: 545128311
+      Grass4: -1408796523
+      Grass5: 1763519653
+      Overworld_0: 2134090853
       Overworld_1: -294830498
       Overworld_10: 1698665525
       Overworld_100: 1191383439
@@ -23019,8 +23016,6 @@ TextureImporter:
       Overworld_350: -1406256520
       Overworld_351: -1273888254
       Overworld_352: 721908459
-      Overworld_353: 1417018068
-      Overworld_354: 545128311
       Overworld_355: 1388250498
       Overworld_356: -621557131
       Overworld_357: -943765045
@@ -23054,8 +23049,6 @@ TextureImporter:
       Overworld_382: 1997410346
       Overworld_383: 970481928
       Overworld_385: -1005905357
-      Overworld_386: -1408796523
-      Overworld_387: 1763519653
       Overworld_388: -896730791
       Overworld_389: 1396014472
       Overworld_39: -1955003224
@@ -23246,9 +23239,7 @@ TextureImporter:
       Overworld_556: -1252560278
       Overworld_557: 756130294
       Overworld_558: 1089358316
-      Overworld_559: -626102568
       Overworld_56: 1716620162
-      Overworld_560: -264848293
       Overworld_561: -648751144
       Overworld_562: -1462576087
       Overworld_563: 645919349
@@ -23272,8 +23263,6 @@ TextureImporter:
       Overworld_58: 1894059202
       Overworld_580: 1149736122
       Overworld_581: -1997280072
-      Overworld_582: -888223858
-      Overworld_583: -1824565230
       Overworld_584: -1748827667
       Overworld_585: 1997949082
       Overworld_586: -1857565774
@@ -23734,6 +23723,10 @@ TextureImporter:
       Overworld_998: -133216933
       Overworld_999: 590543753
       PlowableDirt: -1511773162
+      Rock0: -626102568
+      Rock1: -264848293
+      Rock2: -888223858
+      Rock3: -1824565230
       WoodHouse: 2060023845
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

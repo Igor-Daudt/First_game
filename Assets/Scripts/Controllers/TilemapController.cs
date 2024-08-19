@@ -63,9 +63,9 @@ public class TilemapController : MonoBehaviour{
         tilemap.SetTile(tilePosition, plowable.tiles[0]); // Gets first tile saved in plowable, returns dirt
     }
 
-    public bool PlantSeed(Vector3Int tilePosition){
+    public bool PlantSeed(Vector3Int tilePosition, Item seed){
         if(dataFromTiles[GetTileBase(tilePosition)] == plowable){
-            tilemap.SetTile(tilePosition, plantedStages[0].tiles[0]);
+            tilemap.SetTile(tilePosition, SeedToCrop.instance.SeedToTileBase(seed));
             return true;
         }
         return false;
@@ -74,14 +74,20 @@ public class TilemapController : MonoBehaviour{
     public void GrowSeed(Vector3Int tilePosition){
         if(plantedStages.Contains(GetTileData(GetTileBase(tilePosition)))){
             TileData tileDataTile = dataFromTiles[GetTileBase(tilePosition)];
-            Debug.Log(tileDataTile.tiles[0]);
-            Debug.Log(plantedStages[0].tiles[0]);
             if(tileDataTile.tiles[0] == plantedStages[0].tiles[0]){
                 tilemap.SetTile(tilePosition, plantedStages[1].tiles[0]);
             }
             else if(tileDataTile.tiles[0] == plantedStages[1].tiles[0]){
                 tilemap.SetTile(tilePosition, plantedStages[2].tiles[0]);
             }
+        }
+    }
+
+    public void HarvestCrop(Vector3Int tilePosition){
+        TileData tileDataTile = dataFromTiles[GetTileBase(tilePosition)];
+        if(tileDataTile.tiles[0] == plantedStages[2].tiles[0]){
+            InventoryController.instance.AddItem(SeedToCrop.instance.TileBaseToSeed(GetTileBase(tilePosition)));
+            tilemap.SetTile(tilePosition, plowable.tiles[0]);
         }
     }
 }

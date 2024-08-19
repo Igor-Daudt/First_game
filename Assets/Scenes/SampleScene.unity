@@ -941,11 +941,10 @@ MonoBehaviour:
   tilemap: {fileID: 1704380522}
   plowable: {fileID: 11400000, guid: 1e25ec418025c494c9ba3d05c10eb0ef, type: 2}
   notPlowable: {fileID: 11400000, guid: f74d3b417d455d8418ea20200c79e40f, type: 2}
-  planted: {fileID: 0}
-  cropStages:
-  - {fileID: 11400000, guid: 3397d652343d76f4fa7ffd90511525d7, type: 2}
-  - {fileID: 11400000, guid: 7135954c717b95447a01eb5f387cb157, type: 2}
-  - {fileID: 11400000, guid: cff9fb1d5403ff84da1d10d1cb76e315, type: 2}
+  plantedStages:
+  - {fileID: 11400000, guid: 90d450839af59c04cbafd9272699b97d, type: 2}
+  - {fileID: 11400000, guid: fd1634c39ddf9a54c8e6c3c0846ebf85, type: 2}
+  - {fileID: 11400000, guid: 8096969aeefefc24798fd8d8c7875292, type: 2}
 --- !u!1 &402971337
 GameObject:
   m_ObjectHideFlags: 0
