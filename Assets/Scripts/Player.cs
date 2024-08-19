@@ -6,8 +6,6 @@ using UnityEngine.Tilemaps;
 public class Player : MonoBehaviour
 {
     private const bool COLLIDER_FOUND = true;
-    private const bool USE_ITEM = true;
-    private const bool ACESS_ITEM = false;
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private GameInput gameInput;
     [SerializeField] private ToolOnHand tool;
@@ -20,8 +18,9 @@ public class Player : MonoBehaviour
     }
 
     private void GameInput_OnInteractAction(object sender, System.EventArgs e){
-        tool.Use(InventoryController.instance.GetSelectedItem(ACESS_ITEM));
-        Debug.Log(TilemapController.instance.GetTileBase(TilemapController.instance.GetGridPosition(gameInput.GetMouseCoordinates(), TilemapController.SCREEN_POSITION) ));
+        //Debug.Log(TilemapController.instance.GetTileBase(TilemapController.instance.GetGridPosition(gameInput.GetMouseCoordinates(), TilemapController.SCREEN_POSITION)));
+        tool.Use(InventoryController.instance.GetSelectedItem(InventoryController.ACESS_ITEM));
+        
         //TilemapController.instance.ChangeSelectedTile(TilemapController.instance.GetGridPosition(gameInput.GetMouseCoordinates()));
     }
 

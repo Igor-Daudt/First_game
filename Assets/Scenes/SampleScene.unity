@@ -939,9 +939,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemap: {fileID: 1704380522}
-  tileDataList:
-  - {fileID: 11400000, guid: 1e25ec418025c494c9ba3d05c10eb0ef, type: 2}
-  - {fileID: 11400000, guid: f74d3b417d455d8418ea20200c79e40f, type: 2}
+  plowable: {fileID: 11400000, guid: 1e25ec418025c494c9ba3d05c10eb0ef, type: 2}
+  notPlowable: {fileID: 11400000, guid: f74d3b417d455d8418ea20200c79e40f, type: 2}
+  planted: {fileID: 0}
+  cropStages:
+  - {fileID: 11400000, guid: 3397d652343d76f4fa7ffd90511525d7, type: 2}
+  - {fileID: 11400000, guid: 7135954c717b95447a01eb5f387cb157, type: 2}
+  - {fileID: 11400000, guid: cff9fb1d5403ff84da1d10d1cb76e315, type: 2}
 --- !u!1 &402971337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,6 +1058,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 451363966}
+  - component: {fileID: 451363967}
   m_Layer: 0
   m_Name: Tool
   m_TagString: Untagged
@@ -1076,6 +1081,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1452131745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &451363967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451363965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49167d56f7f2524597567e3a0c62f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsInGame:
+  - {fileID: 11400000, guid: b66f6641adf58a042a71c7bd6bf1a0ce, type: 2}
+  gameInput: {fileID: 257354147}
 --- !u!1 &457240305
 GameObject:
   m_ObjectHideFlags: 3
@@ -2176,6 +2196,11 @@ MonoBehaviour:
   - {fileID: 1453854912}
   - {fileID: 1978146667}
   - {fileID: 1138292134}
+  startItems:
+  - {fileID: 11400000, guid: b66f6641adf58a042a71c7bd6bf1a0ce, type: 2}
+  - {fileID: 11400000, guid: 7ab817e872689724eb4acb931a913638, type: 2}
+  - {fileID: 11400000, guid: 7ab817e872689724eb4acb931a913638, type: 2}
+  - {fileID: 11400000, guid: a332fe47d79858640834b83c81634e38, type: 2}
   inventoryItemPrefab: {fileID: 6027521852709243298, guid: 52c3746d19b459b4fbe23539438cbe3c, type: 3}
 --- !u!4 &1064827131
 Transform:
@@ -2850,7 +2875,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   gameInput: {fileID: 257354147}
-  tilemapController: {fileID: 381350607}
+  tool: {fileID: 451363967}
 --- !u!114 &1453854912 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1734779439213938339, guid: f8c514ec8d3e14047b6ad1b730c282b3, type: 3}

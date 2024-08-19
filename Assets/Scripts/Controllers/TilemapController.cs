@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
@@ -11,6 +12,7 @@ public class TilemapController : MonoBehaviour{
     [SerializeField] Tilemap tilemap;
     [SerializeField] TileData plowable;
     [SerializeField] TileData notPlowable;
+    [SerializeField] List<TileData> plantedStages;
     Dictionary<TileBase, TileData> dataFromTiles;
 
     private void Awake(){
@@ -20,7 +22,7 @@ public class TilemapController : MonoBehaviour{
     private void Start(){
         // Get the whole data from the map tiles
         dataFromTiles = new Dictionary<TileBase, TileData>();
-        TileData[] tileDataList = {plowable,  notPlowable};
+        TileData[] tileDataList = {plowable,  notPlowable, plantedStages[0], plantedStages[1], plantedStages[2]};
 
         foreach(TileData tileData in tileDataList)
         {
@@ -57,8 +59,29 @@ public class TilemapController : MonoBehaviour{
         return dataFromTiles[tile];
     }
 
-    public void ChangeSelectedTile(Vector3Int tilePosition){
-        dataFromTiles[GetTileBase(tilePosition)] = plowable;
+    public void TurnIntoPlowableTile(Vector3Int tilePosition){
         tilemap.SetTile(tilePosition, plowable.tiles[0]); // Gets first tile saved in plowable, returns dirt
+    }
+
+    public bool PlantSeed(Vector3Int tilePosition){
+        if(dataFromTiles[GetTileBase(tilePosition)] == plowable){
+            tilemap.SetTile(tilePosition, plantedStages[0].tiles[0]);
+            return true;
+        }
+        return false;
+    }
+
+    public void GrowSeed(Vector3Int tilePosition){
+        if(plantedStages.Contains(GetTileData(GetTileBase(tilePosition)))){
+            TileData tileDataTile = dataFromTiles[GetTileBase(tilePosition)];
+            Debug.Log(tileDataTile.tiles[0]);
+            Debug.Log(plantedStages[0].tiles[0]);
+            if(tileDataTile.tiles[0] == plantedStages[0].tiles[0]){
+                tilemap.SetTile(tilePosition, plantedStages[1].tiles[0]);
+            }
+            else if(tileDataTile.tiles[0] == plantedStages[1].tiles[0]){
+                tilemap.SetTile(tilePosition, plantedStages[2].tiles[0]);
+            }
+        }
     }
 }

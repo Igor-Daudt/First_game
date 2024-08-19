@@ -22462,7 +22462,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Overworld_1065
+      name: CropStage0
       rect:
         serializedVersion: 2
         x: 0
@@ -22483,7 +22483,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Overworld_1066
+      name: CropStage1
       rect:
         serializedVersion: 2
         x: 16
@@ -22588,7 +22588,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Overworld_1071
+      name: CropStage2
       rect:
         serializedVersion: 2
         x: 0
@@ -22609,7 +22609,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Overworld_1072
+      name: PlowableDirt
       rect:
         serializedVersion: 2
         x: 16
@@ -22629,6 +22629,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Overworld_6
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 9
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf7efd781aa5fcb4fb1f4cdc5fb11ee3
+      internalID: 1321846544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -22641,6 +22662,9 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       BoxPotatoes: 1372950214
+      CropStage0: -182879647
+      CropStage1: 1065054521
+      CropStage2: -1359200935
       Dirt: 1650044631
       Grass: -726508257
       Overworld_0: -663830408
@@ -22718,15 +22742,11 @@ TextureImporter:
       Overworld_1062: 2132738807
       Overworld_1063: 1238975277
       Overworld_1064: -1562466082
-      Overworld_1065: -182879647
-      Overworld_1066: 1065054521
       Overworld_1067: -104112527
       Overworld_1068: -1184829550
       Overworld_1069: -1662753371
       Overworld_107: -545621181
       Overworld_1070: 311972103
-      Overworld_1071: -1359200935
-      Overworld_1072: -1511773162
       Overworld_108: 2104145044
       Overworld_109: -1130212067
       Overworld_11: -200526246
@@ -23271,6 +23291,7 @@ TextureImporter:
       Overworld_597: -807827729
       Overworld_598: 478329756
       Overworld_599: -455285143
+      Overworld_6: 1321846544
       Overworld_60: -97428640
       Overworld_600: 1830649878
       Overworld_601: 1656511161
@@ -23712,6 +23733,7 @@ TextureImporter:
       Overworld_997: -1449730629
       Overworld_998: -133216933
       Overworld_999: 590543753
+      PlowableDirt: -1511773162
       WoodHouse: 2060023845
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

@@ -7,6 +7,7 @@ using UnityEngine.Tilemaps;
 public class TileData : ScriptableObject{
     
     public List<TileBase> tiles;
+    public int stage;   
     public bool plowable;
 
 }

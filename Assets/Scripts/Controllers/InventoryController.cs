@@ -7,6 +7,8 @@ using UnityEngine;
 public class InventoryController : MonoBehaviour{
     public static InventoryController instance;
     private const int MAX_STACKED_ITEMS = 12;
+    public const bool USE_ITEM = true;
+    public const bool ACESS_ITEM = false;
     private const int FIRST_SLOT = 0;
     const bool FULL_INVENTORY = false;
     public InventorySlot[] inventorySlots;
@@ -78,6 +80,7 @@ public class InventoryController : MonoBehaviour{
     public Item GetSelectedItem(bool use){
         InventorySlot slot = inventorySlots[selectedSlot];
         InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+        Debug.Log(itemInSlot.item.Name);
         if(itemInSlot != null){
             if(use){
                 itemInSlot.count--;
